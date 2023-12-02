@@ -35,4 +35,14 @@ public class AppTest
 
         assertEquals(result, expectedResult);
     } 
+
+    @Test
+    public void shouldReorderToRGBForConsistency(){
+        String input = {"7 blue", "6 green", "3 red"};
+        App game = new App();
+        String[] result = game.orderToRGB(input);
+        String[] expectedResult = {"3 red", "6 green", "7 blue"};
+
+        assertEquals(result, expectedResult);
+    }
 }
