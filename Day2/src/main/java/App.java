@@ -12,7 +12,9 @@ public class App
     }
 
     public String[] semiColonSplit(String gameData){
-        return null;
+        String[] splitData = new String[2];
+        splitData = gameData.split("; ");
+        return splitData;
     }
     
 }

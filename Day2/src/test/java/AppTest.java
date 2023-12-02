@@ -22,6 +22,7 @@ public class AppTest
         String input = "7 blue, 6 green, 3 red; 3 red, 5 green, 1 blue; 1 red, 5 green, 8 blue; 3 red, 1 green, 5 blue";
         App game = new App();
         String[] result = game.semiColonSplit(input);
-        String[] expectedResult = {"7 blue, 6 green, 3 red; 3 red, 5 green, 1 blue","1 red, 5 green, 8 blue","3 red, 1 green, 5 blue"};
+        String[] expectedResult = {"7 blue, 6 green, 3 red", "3 red, 5 green, 1 blue","1 red, 5 green, 8 blue","3 red, 1 green, 5 blue"};
+        assertEquals(result, expectedResult);
     }
 }
