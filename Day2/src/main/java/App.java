@@ -16,5 +16,11 @@ public class App
         splitData = gameData.split("; ");
         return splitData;
     }
+
+    public String[] commaSplit(String gameData){
+        String[] splitData = new String[2];
+        splitData = gameData.split(", ");
+        return splitData;
+    }
     
 }
