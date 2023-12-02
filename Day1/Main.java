@@ -5,24 +5,25 @@ import java.io.FileNotFoundException;
 import java.util.Scanner; 
 
 public class Main{
-    static List<String> parsedData = new ArrayList<String>();
-    static List<String> characterlessData = new ArrayList<String>();
-    static List<String> removedSingles = new ArrayList<String>();
-    static List<String> removedLongerNumbers = new ArrayList<String>();
-    private static int sum;
+    List<String> parsedData = new ArrayList<String>();
+    List<String> characterlessData = new ArrayList<String>();
+    List<String> removedSingles = new ArrayList<String>();
+    List<String> removedLongerNumbers = new ArrayList<String>();
+    private int sum;
 
     public static void main(String[] args) {
-        reader();
-        alphabetRemover();
-        singleHandler();
-        doubleHandler();
-        totaller();
-        System.out.println(sum);
+        Main main = new Main();
+        main.readDataFromFile();
+        main.removeLetters();
+        main.removeSingleCharacters();
+        main.removeDoubleCharacters();
+        main.calculateTotal();
+        System.out.println(main.sum);
 
 
     }     
     
-    public static void reader() {
+    public void readDataFromFile() {
         try {
             File myObj = new File("data.txt");
             Scanner myReader = new Scanner(myObj);
@@ -37,13 +38,13 @@ public class Main{
           }
     }
 
-    public static void alphabetRemover(){
+    public void removeLetters(){
         for (String singleCoordinate : parsedData) {
             characterlessData.add(singleCoordinate.replaceAll("[a-zA-Z]+", ""));
         }
     }
 
-    public static void singleHandler() {
+    public void removeSingleCharacters() {
         for (String string : characterlessData) {
             if(string.length() == 1) {
                 removedSingles.add(string + string);
@@ -53,20 +54,20 @@ public class Main{
         }
     }
 
-        public static void doubleHandler() {
+        public void removeDoubleCharacters() {
         for (String string : removedSingles) {
             if(string.length() > 2 ) {
                 char firstChar = string.charAt(0);
                 char lastChar = string.charAt(string.length() -1);
-                String shortenedSrtring = Character.toString(firstChar) + Character.toString(lastChar);
-                removedLongerNumbers.add(shortenedSrtring);
+                String shortenedString = Character.toString(firstChar) + Character.toString(lastChar);
+                removedLongerNumbers.add(shortenedString);
             } else {
                 removedLongerNumbers.add(string);
             }
         }
     }
 
-    public static void totaller() {
+    public void calculateTotal() {
         for (String doubleCharString : removedLongerNumbers) {
             sum += Integer.parseInt(doubleCharString);
         }
