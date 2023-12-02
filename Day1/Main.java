@@ -9,14 +9,15 @@ public class Main{
     static List<String> characterlessData = new ArrayList<String>();
     static List<String> removedSingles = new ArrayList<String>();
     static List<String> removedLongerNumbers = new ArrayList<String>();
+    private static int sum;
 
     public static void main(String[] args) {
         reader();
         alphabetRemover();
         singleHandler();
         doubleHandler();
-        System.out.println(removedLongerNumbers);
-
+        totaller();
+        System.out.println(sum);
 
 
     }     
@@ -65,5 +66,10 @@ public class Main{
         }
     }
 
+    public static void totaller() {
+        for (String doubleCharString : removedLongerNumbers) {
+            sum += Integer.parseInt(doubleCharString);
+        }
+    }
 
 }
