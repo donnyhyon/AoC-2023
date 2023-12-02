@@ -1,12 +1,14 @@
-import java.io.File;  // Import the File class
-import java.io.FileNotFoundException;  // Import this class to handle errors
-import java.util.Scanner; // Import the Scanner class to read text files
-
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+import java.io.FileNotFoundException; 
+import java.util.Scanner; 
 
 public class Main{
+    static List<String> parsedData = new ArrayList<String>();
     public static void main(String[] args) {
-        System.out.println("Hello world");
         reader();
+        System.out.println(parsedData);
     }     
     
     public static void reader() {
@@ -16,6 +18,7 @@ public class Main{
             while (myReader.hasNextLine()) {
               String data = myReader.nextLine();
               System.out.println(data);
+              parsedData.add(data);
             }
             myReader.close();
           } catch (FileNotFoundException e) {
