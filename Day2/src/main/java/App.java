@@ -6,6 +6,12 @@ public class App
     }
 
     public String[] colonSplit(String gameData){
+        String[] splitData = new String[2];
+        splitData = gameData.split(": ");
+        return splitData;
+    }
+
+    public String[] semiColonSplit(String gameData){
         return null;
     }
     
