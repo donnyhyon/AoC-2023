@@ -25,4 +25,14 @@ public class AppTest
         String[] expectedResult = {"7 blue, 6 green, 3 red", "3 red, 5 green, 1 blue","1 red, 5 green, 8 blue","3 red, 1 green, 5 blue"};
         assertEquals(result, expectedResult);
     }
+
+    @Test
+    public void shouldSplitAtComma(){
+        String input = "7 blue, 6 green, 3 red";
+        App game = new App();
+        String[] result = game.commaSplit(input);
+        String[] expectedResult = {"7 blue", "6 green", "3 red"};
+
+        assertEquals(result, expectedResult);
+    } 
 }
