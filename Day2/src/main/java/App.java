@@ -5,5 +5,8 @@ public class App
         System.out.println( "Hello World!" );
     }
 
+    public String[] colonSplit(String gameData){
+        return null;
+    }
     
 }

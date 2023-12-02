@@ -1,12 +1,19 @@
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
+
 
 import org.junit.Test;
 
 public class AppTest 
 {
     @Test
-    public void shouldAnswerWithTrue()
+    public void shouldSplitAtColon()
     {
-        assertTrue( true );
+        String input = "Game 1: 7 blue, 6 green, 3 red; 3 red, 5 green, 1 blue; 1 red, 5 green, 8 blue; 3 red, 1 green, 5 blue";
+        
+        App game = new App();
+        String[] result = game.colonSplit(input);
+        String[] expectedArray = {"Game 1", "7 blue, 6 green, 3 red; 3 red, 5 green, 1 blue; 1 red, 5 green, 8 blue; 3 red, 1 green, 5 blue"};
+        assertEquals(result, expectedArray);
     }
 }
