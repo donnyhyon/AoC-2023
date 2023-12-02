@@ -6,9 +6,15 @@ import java.util.Scanner;
 
 public class Main{
     static List<String> parsedData = new ArrayList<String>();
+    static List<String> characterlessData = new ArrayList<String>();
+
     public static void main(String[] args) {
         reader();
-        System.out.println(parsedData);
+        alphabetRemover();
+        System.out.println(characterlessData);
+
+
+
     }     
     
     public static void reader() {
@@ -26,4 +32,12 @@ public class Main{
             e.printStackTrace();
           }
     }
+
+    public static void alphabetRemover(){
+        for (String singleCoordinate : parsedData) {
+            characterlessData.add(singleCoordinate.replaceAll("[a-zA-Z]+", ""));
+        }
+    }
+
+
 }
