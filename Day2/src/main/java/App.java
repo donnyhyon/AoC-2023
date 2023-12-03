@@ -60,5 +60,9 @@ public class App
         return id;
     }
 
+    public int convertToInt(String id){
+        return Integer.parseInt(id);
+    }
+
 
 }   
