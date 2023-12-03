@@ -45,4 +45,13 @@ public class AppTest
 
         assertEquals(result, expectedResult);
     }
+
+    @Test
+    public void shouldAutoFillZeroForMissingColours(){
+        App game = new App();
+        String[] input = {"7 blue", "6 green"};
+        String[] result = game.orderToRGB(input);
+        String[] expectedResult = {"0 red", "6 green", "7 blue"};
+        assertEquals(result, expectedResult);
+    }
 }
