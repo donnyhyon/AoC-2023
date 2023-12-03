@@ -73,14 +73,13 @@ public class App
     public int[][] processGameData(String gameResultData){
         String[] splitGames = semiColonSplit(gameResultData);
 
-        int[][] processedGameData = new int[splitGames.length][];
+        int[][] processedGameData = new int[splitGames.length][3];
         for (int i = 0 ; i < splitGames.length ; i++ ) {
             String oneGame = splitGames[i];
             String[] splitGame = commaSplit(oneGame);
-            splitGame = orderToRGB(splitGame);
-            processedGameData[i] = convertToIntArray(splitGame);
+            String[] orderedSplitGame = orderToRGB(splitGame);
+            processedGameData[i] = convertToIntArray(orderedSplitGame);
         }
-
         return processedGameData;
     }
 
