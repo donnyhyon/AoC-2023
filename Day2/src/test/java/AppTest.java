@@ -99,8 +99,31 @@ public class AppTest
         String input = "7 blue, 6 green, 3 red; 3 red, 5 green, 1 blue; 1 red, 5 green, 8 blue; 3 red, 1 green, 5 blue";
         int[][] result = game.processGameData(input);
         int[][] expectedResult = {{3,6,7},{3,5,1},{1,5,8},{3,1,5}};
-        // assertTrue(Arrays.equals(result, expectedResult));
         assertEquals(Arrays.deepToString(result), Arrays.deepToString(expectedResult));
+    }
+
+    @Test
+    public void wrapGameIntInArrayArray(){
+        App game = new App();
+        int input = 1;
+        int[][] actual = game.intDoubleWrap(input);
+        int[][] expected = {{1}};
+        assertEquals(Arrays.deepToString(actual), Arrays.deepToString(expected));
+    }
+
+    @Test
+    public void processRawDataLine(){
+        App game = new App();
+        String input = "Game 1: 7 blue, 6 green, 3 red; 3 red, 5 green, 1 blue; 1 red, 5 green, 8 blue; 3 red, 1 green, 5 blue";
+        int[][] actual = game.processAGame(input);
+        int[][][] expected = {{{1}}, {{3,6,7},{3,5,1},{1,5,8},{3,1,5}}};
+
+    }
+
+    private int[][] processAGame(String input) {
+        // Implement the logic to process a game here
+        // Return the processed game data as a 2D array
+        return null;
     }
 
     // @Test

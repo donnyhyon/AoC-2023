@@ -64,6 +64,10 @@ public class App
         return Integer.parseInt(id);
     }
 
+    public int[][] intDoubleWrap(int id){
+        return new int[][] {{id}};
+    }
+
     public int processGameID(String gameID){
         String withoutGame = removeGame(gameID);
         int asInt = convertToInt(withoutGame);
