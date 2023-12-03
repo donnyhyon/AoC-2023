@@ -93,6 +93,15 @@ public class AppTest
         assertEquals(result, expectedResult);
     }
 
+    @Test
+    public void processGameResultData(){
+        App game = new App();
+        String input = "7 blue, 6 green, 3 red; 3 red, 5 green, 1 blue; 1 red, 5 green, 8 blue; 3 red, 1 green, 5 blue";
+        int[][] result = game.processGameData(input);
+        int[][] expectedResult = {{3,6,7},{3,5,1},{1,5,8},{3,1,5}};
+        assertEquals(Arrays.toString(Arrays.toString(result)),Arrays.toString(Arrays.toString(expectedResult)));
+    }
+
     // @Test
     // public void makeSourceDataUseful(){
     //     App game = new App();

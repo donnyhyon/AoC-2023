@@ -70,4 +70,18 @@ public class App
         return asInt;
     }
 
+    public int[][] processGameData(String gameResultData){
+        String[] splitGames = semiColonSplit(gameResultData);
+
+        int[][] processedGameData = new int[splitGames.length][];
+        for (int i = 0 ; i < splitGames.length ; i++ ) {
+            String oneGame = splitGames[i];
+            String[] splitGame = commaSplit(oneGame);
+            splitGame = orderToRGB(splitGame);
+            processedGameData[i] = convertToIntArray(splitGame);
+        }
+
+        return processedGameData;
+    }
+
 }   
