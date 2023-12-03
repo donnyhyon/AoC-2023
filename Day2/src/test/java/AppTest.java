@@ -83,4 +83,22 @@ public class AppTest
         int expectedResult = 1;
         assertEquals(result, expectedResult);
     }
+
+    @Test
+    public void processGameIdData(){
+        App game = new App();
+        String input = "Game 1";
+        int result = game.processGameID(input);
+        int expectedResult = 1;
+        assertEquals(result, expectedResult);
+    }
+
+    // @Test
+    // public void makeSourceDataUseful(){
+    //     App game = new App();
+    //     String input = "Game 1: 7 blue, 6 green, 3 red; 3 red, 5 green, 1 blue; 1 red, 5 green, 8 blue; 3 red, 1 green, 5 blue";
+    //     int[] result = game.processInputData(input);
+    //     int[] expectedResult = {1, {{3,6,7}, {3,5,1}, {1,5,8}, {3,1,5}}};
+    //     assertEquals(result, expectedResult);
+    // }
 }
