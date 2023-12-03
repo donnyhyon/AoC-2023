@@ -115,7 +115,7 @@ public class AppTest
     public void processRawDataLine(){
         App game = new App();
         String input = "Game 1: 7 blue, 6 green, 3 red; 3 red, 5 green, 1 blue; 1 red, 5 green, 8 blue; 3 red, 1 green, 5 blue";
-        int[][] actual = game.processAGame(input);
+        int[][][] actual = game.processAGame(input);
         int[][][] expected = {{{1}}, {{3,6,7},{3,5,1},{1,5,8},{3,1,5}}};
 
     }
