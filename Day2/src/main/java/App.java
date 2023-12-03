@@ -1,5 +1,6 @@
 import javax.naming.StringRefAddr;
 import java.util.Arrays;
+import java.util.HashMap;
 
 public class App 
 {
@@ -87,7 +88,10 @@ public class App
         return processedGameData;
     }
 
-    public int[][][] processAGame(String gameData){
+    public HashMap<Integer, int[][]> processAGame(String gameData){
+        String[] dataSplitAtColon = colonSplit(gameData);
+        System.out.println(Arrays.toString(dataSplitAtColon));
+        String[][] dataSplitAtSemiColon = semiColonSplit(dataSplitAtColon[1]);
         return null;
     }
 

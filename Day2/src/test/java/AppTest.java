@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 import java.util.Arrays;
+import java.util.HashMap;
 
 public class AppTest 
 {
@@ -115,9 +116,13 @@ public class AppTest
     public void processRawDataLine(){
         App game = new App();
         String input = "Game 1: 7 blue, 6 green, 3 red; 3 red, 5 green, 1 blue; 1 red, 5 green, 8 blue; 3 red, 1 green, 5 blue";
-        int[][][] actual = game.processAGame(input);
-        int[][][] expected = {{{1}}, {{3,6,7},{3,5,1},{1,5,8},{3,1,5}}};
+        HashMap<Integer, int[][]> gameResults = new HashMap<>();
+        HashMap<Integer, int[][]> actual = game.processAGame(input);
+        HashMap<Integer, int[][]> expected = new HashMap<>();
+        expected.put(1, new int[][]{{3,6,7},{3,5,1},{1,5,8},{3,1,5}});
+        assertEquals(actual, expected);
 
+        
     }
 
     private int[][] processAGame(String input) {
