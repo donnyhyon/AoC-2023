@@ -1,12 +1,17 @@
 import javax.naming.StringRefAddr;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 
 public class App 
 {
     public static void main( String[] args )
     {
         System.out.println( "Day2 AoC Challenge" );
+        App app = new App();
+        app.readDataFile();
     }
 
     public String[] colonSplit(String gameData){
@@ -93,6 +98,21 @@ public class App
         String[] splitAtColon = colonSplit(gameData);
         parsedGameData.put((processGameID(splitAtColon[0])),(processGameData(splitAtColon[1])));
         return parsedGameData;
+    }
+
+    public void readDataFile() {
+        try {
+            FileReader reader = new FileReader("data.txt");
+            BufferedReader bufferedReader = new BufferedReader(reader);
+
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
+                System.out.println(line);
+            }
+            bufferedReader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }   
