@@ -9,16 +9,16 @@ import java.util.HashMap;
 public class AppTest 
 {
     final boolean areHashesEqual(HashMap<Integer, int[][]> map1, HashMap<Integer, int[][]> map2) {
-    if (map1.size() != map2.size()) {
-        return false;
-    }
-
-    for (Integer key : map1.keySet()) {
-        if (!map2.containsKey(key) || !Arrays.deepEquals(map1.get(key), map2.get(key))) {
+        if (map1.size() != map2.size()) {
             return false;
         }
-    }
-    return true;
+
+        for (Integer key : map1.keySet()) {
+            if (!map2.containsKey(key) || !Arrays.deepEquals(map1.get(key), map2.get(key))) {
+                return false;
+            }
+        }
+        return true;
     }
 
     @Test
@@ -129,11 +129,9 @@ public class AppTest
     public void processRawDataLine(){
         App game = new App();
         String input = "Game 1: 7 blue, 6 green, 3 red; 3 red, 5 green, 1 blue; 1 red, 5 green, 8 blue; 3 red, 1 green, 5 blue";
-        HashMap<Integer, int[][]> gameResults = new HashMap<>();
         HashMap<Integer, int[][]> actual = game.processAGame(input);
         HashMap<Integer, int[][]> expected = new HashMap<>();
         expected.put(1, new int[][]{{3,6,7},{3,5,1},{1,5,8},{3,1,5}});
-        // assertEquals(actual, expected);  
         assertTrue(areHashesEqual(actual, expected));
     }
 }
