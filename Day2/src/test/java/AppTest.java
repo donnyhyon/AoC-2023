@@ -64,4 +64,14 @@ public class AppTest
         int[] expectedResult = { 7, 6, 3 };
         assertEquals(Arrays.toString(result), Arrays.toString(expectedResult));
     }
+
+    @Test
+    public void removeGame(){
+        App game = new App();
+        String input = "Game 1";
+        String result = game.removeGame(input);
+        String expectedResult = "1";
+
+        assertEquals(result, expectedResult);
+    }
 }

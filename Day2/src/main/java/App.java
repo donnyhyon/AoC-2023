@@ -54,4 +54,11 @@ public class App
         }
         return intArray;
     }
+
+    public String removeGame(String gameID){
+        String id = gameID.replaceAll("Game ", "");
+        return id;
+    }
+
+
 }   
