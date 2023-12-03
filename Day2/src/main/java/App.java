@@ -24,16 +24,21 @@ public class App
     }
 
     public String[] orderToRGB(String[] unOrderedRGB){
-        String[] rGBData = new String[2];
-        int redIndex = unOrderedRGB.indexOf(".*red.*");
-        int greenIndex = unOrderedRGB.indexOf(".*green.*");
-        int blueIndex = unOrderedRGB.indexOf(".*blue.*");
+        String[] rGBData = new String[3];
+
+        int redIndex = -1, greenIndex = -1, blueIndex = -1;
+        for (int i = 0; i < unOrderedRGB.length; i++) {
+            if (unOrderedRGB[i].contains("red")){
+                redIndex = i;
+            } else if (unOrderedRGB[i].contains("green")){
+                greenIndex = i;
+            } else if (unOrderedRGB[i].contains("blue")){
+                blueIndex = i;
+            }
+        }
         rGBData[0] = (redIndex != -1)? unOrderedRGB[redIndex] : "0 red";
         rGBData[1] = (greenIndex != -1)? unOrderedRGB[greenIndex] : "0 green";
         rGBData[2] = (blueIndex != -1)? unOrderedRGB[blueIndex] : "0 blue";
-
         return rGBData;
-
     }
-    
 }
