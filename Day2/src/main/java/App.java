@@ -89,9 +89,6 @@ public class App
     }
 
     public HashMap<Integer, int[][]> processAGame(String gameData){
-        String[] dataSplitAtColon = colonSplit(gameData);
-        System.out.println(Arrays.toString(dataSplitAtColon));
-        String[][] dataSplitAtSemiColon = semiColonSplit(dataSplitAtColon[1]);
         return null;
     }
 

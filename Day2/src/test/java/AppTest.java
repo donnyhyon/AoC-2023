@@ -120,23 +120,6 @@ public class AppTest
         HashMap<Integer, int[][]> actual = game.processAGame(input);
         HashMap<Integer, int[][]> expected = new HashMap<>();
         expected.put(1, new int[][]{{3,6,7},{3,5,1},{1,5,8},{3,1,5}});
-        assertEquals(actual, expected);
-
-        
+        assertEquals(actual, expected);  
     }
-
-    private int[][] processAGame(String input) {
-        // Implement the logic to process a game here
-        // Return the processed game data as a 2D array
-        return null;
-    }
-
-    // @Test
-    // public void makeSourceDataUseful(){
-    //     App game = new App();
-    //     String input = "Game 1: 7 blue, 6 green, 3 red; 3 red, 5 green, 1 blue; 1 red, 5 green, 8 blue; 3 red, 1 green, 5 blue";
-    //     int[] result = game.processInputData(input);
-    //     int[] expectedResult = {1, {{3,6,7}, {3,5,1}, {1,5,8}, {3,1,5}}};
-    //     assertEquals(result, expectedResult);
-    // }
 }
