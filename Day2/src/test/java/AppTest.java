@@ -3,6 +3,7 @@ import static org.junit.Assert.assertEquals;
 
 
 import org.junit.Test;
+import java.util.Arrays;
 
 public class AppTest 
 {
@@ -53,5 +54,14 @@ public class AppTest
         String[] result = game.orderToRGB(input);
         String[] expectedResult = {"0 red", "6 green", "7 blue"};
         assertEquals(result, expectedResult);
+    }
+
+    @Test
+    public void shouldConvertStringArrayIntoIntArray() {
+        App game = new App();
+        String[] input = {"7 blue", "6 green", "3 red"};
+        int[] result = game.convertToIntArray(input);
+        int[] expectedResult = { 7, 6, 3 };
+        assertEquals(Arrays.toString(result), Arrays.toString(expectedResult));
     }
 }

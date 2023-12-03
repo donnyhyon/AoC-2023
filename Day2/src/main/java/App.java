@@ -1,3 +1,6 @@
+import javax.naming.StringRefAddr;
+import java.util.Arrays;
+
 public class App 
 {
     public static void main( String[] args )
@@ -41,4 +44,14 @@ public class App
         rGBData[2] = (blueIndex != -1)? unOrderedRGB[blueIndex] : "0 blue";
         return rGBData;
     }
-}
+    public int[] convertToIntArray(String[] stringArray){
+        int[] intArray = new int[stringArray.length];
+        for (int i = 0 ; i <  stringArray.length; i++){
+            stringArray[i] = stringArray[i].replaceAll(" red", "");
+            stringArray[i] = stringArray[i].replaceAll(" green", "");
+            stringArray[i] = stringArray[i].replaceAll(" blue", "");
+            intArray[i] = Integer.parseInt(stringArray[i]);
+        }
+        return intArray;
+    }
+}   
