@@ -74,4 +74,13 @@ public class AppTest
 
         assertEquals(result, expectedResult);
     }
+
+    @Test
+    public void convertToInt(){
+        App game = new App();
+        String input = "1";
+        int result = game.convertToInt(input);
+        int expectedResult = 1;
+        assertEquals(result, expectedResult);
+    }
 }
