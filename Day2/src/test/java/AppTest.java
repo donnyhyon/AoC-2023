@@ -8,6 +8,19 @@ import java.util.HashMap;
 
 public class AppTest 
 {
+    final boolean areHashesEqual(HashMap<Integer, int[][]> map1, HashMap<Integer, int[][]> map2) {
+    if (map1.size() != map2.size()) {
+        return false;
+    }
+
+    for (Integer key : map1.keySet()) {
+        if (!map2.containsKey(key) || !Arrays.deepEquals(map1.get(key), map2.get(key))) {
+            return false;
+        }
+    }
+    return true;
+    }
+
     @Test
     public void shouldSplitAtColon()
     {
@@ -120,6 +133,7 @@ public class AppTest
         HashMap<Integer, int[][]> actual = game.processAGame(input);
         HashMap<Integer, int[][]> expected = new HashMap<>();
         expected.put(1, new int[][]{{3,6,7},{3,5,1},{1,5,8},{3,1,5}});
-        assertEquals(actual, expected);  
+        // assertEquals(actual, expected);  
+        assertTrue(areHashesEqual(actual, expected));
     }
 }

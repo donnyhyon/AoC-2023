@@ -89,7 +89,10 @@ public class App
     }
 
     public HashMap<Integer, int[][]> processAGame(String gameData){
-        return null;
+        HashMap<Integer, int[][]> parsedGameData = new HashMap<>();
+        String[] splitAtColon = colonSplit(gameData);
+        parsedGameData.put((processGameID(splitAtColon[0])),(processGameData(splitAtColon[1])));
+        return parsedGameData;
     }
 
 }   
