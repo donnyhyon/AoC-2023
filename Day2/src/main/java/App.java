@@ -7,11 +7,14 @@ import java.io.IOException;
 
 public class App 
 {
+    private HashMap<Integer, int[][]> parsedData = new HashMap<>();
+
+
     public static void main( String[] args )
     {
         System.out.println( "Day2 AoC Challenge" );
-        App app = new App();
-        app.readDataFile();
+        // App app = new App();
+        // app.readDataFile("data2.txt");
     }
 
     public String[] colonSplit(String gameData){
@@ -100,19 +103,30 @@ public class App
         return parsedGameData;
     }
 
-    public void readDataFile() {
+    public void readDataFile(String filePath) {
         try {
-            FileReader reader = new FileReader("data.txt");
+            FileReader reader = new FileReader(filePath);
             BufferedReader bufferedReader = new BufferedReader(reader);
 
             String line;
             while ((line = bufferedReader.readLine()) != null) {
-                System.out.println(line);
+                String[] splitAtColon = colonSplit(line);
+                parsedData.put((processGameID(splitAtColon[0])),(processGameData(splitAtColon[1])));
             }
             bufferedReader.close();
-        } catch (IOException e) {
+        }catch (IOException e) {
             e.printStackTrace();
         }
     }
 
+    public int[] totalDice(int[][] gameDice){
+        int[] totals = new int[]{0,0,0};
+
+        for (int[]set : gameDice) {
+            for (int i = 0 ; i < set.length ; i ++){
+                totals[i] += set[i];
+            }
+        }
+        return totals;
+    }
 }   

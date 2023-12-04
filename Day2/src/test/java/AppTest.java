@@ -134,4 +134,12 @@ public class AppTest
         expected.put(1, new int[][]{{3,6,7},{3,5,1},{1,5,8},{3,1,5}});
         assertTrue(areHashesEqual(actual, expected));
     }
+
+    public void totalAllDice(){
+        App game = new App();
+        int[][] input = new int[][]{{3,6,7},{3,5,1},{1,5,8},{3,1,5}};
+        int[] actual = game.totalDice(input);
+        int[] expected = {10,17,21};
+        assertEquals(actual, expected);
+    }
 }
