@@ -44,15 +44,15 @@ public class Main{
     public void parseWordedNumbers(){
         for (int i = 0 ; i < parsedData.size(); i++){
             String newString = parsedData.get(i);
-            newString = newString.replaceAll("one", "1");
-            newString = newString.replaceAll("two", "2");
-            newString = newString.replaceAll("three", "3");
-            newString = newString.replaceAll("four", "4");
-            newString = newString.replaceAll("five", "5");
-            newString = newString.replaceAll("six", "6");
-            newString = newString.replaceAll("seven", "7");
-            newString = newString.replaceAll("eight", "8");
-            newString = newString.replaceAll("nine", "9");
+            newString = newString.replaceAll("one", "o1e");
+            newString = newString.replaceAll("two", "t2o");
+            newString = newString.replaceAll("three", "t3e");
+            newString = newString.replaceAll("four", "f4r");
+            newString = newString.replaceAll("five", "f5e");
+            newString = newString.replaceAll("six", "s6x");
+            newString = newString.replaceAll("seven", "s7n");
+            newString = newString.replaceAll("eight", "e8t");
+            newString = newString.replaceAll("nine", "n9e");
             withoutWordyNumbers.add(newString);
         }
     }
