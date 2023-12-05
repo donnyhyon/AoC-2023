@@ -1,6 +1,7 @@
 import javax.naming.StringRefAddr;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Map;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -126,5 +127,26 @@ public class App
             }
         }
         return totals;
+    }
+
+    public HashMap<Integer,Boolean> checkViableGames(int[] inputDice){
+        HashMap<Integer, Boolean> viableGames = new HashMap<>();
+        for (Map.Entry<Integer, int[]> entry : parsedData.entrySet()) {
+            Integer key = entry.getKey();
+            int[] value = entry.getValue();
+            for(int i = 0 ; i < inputDice.length; i++){
+                int expectedDice = inputDice[i];
+                int actualDice = value[i];
+                if (actualDice > expectedDice){
+                    viableGames.put(key, false);
+                    break;
+                } else {
+                    viableGames.put(key, true);
+                }
+            }
+
+        }
+        System.out.println(viableGames);
+        return viableGames;
     }
 }   

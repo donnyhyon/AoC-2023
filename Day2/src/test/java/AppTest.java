@@ -8,7 +8,7 @@ import java.util.HashMap;
 
 public class AppTest 
 {
-    final boolean areHashesEqual(HashMap<Integer, int[]> map1, HashMap<Integer, int[]> map2) {
+    final boolean areHashesEqualInt(HashMap<Integer, int[]> map1, HashMap<Integer, int[]> map2) {
         if (map1.size() != map2.size()) {
             return false;
         }
@@ -19,6 +19,10 @@ public class AppTest
             }
         }
         return true;
+    }
+
+    final boolean areHashesEqualBool(HashMap<Integer, Boolean> map1, HashMap<Integer, Boolean> map2) {
+        return map1.equals(map2);
     }
 
     @Test
@@ -123,7 +127,7 @@ public class AppTest
         HashMap<Integer, int[]> actual = game.processAGame(input);
         HashMap<Integer, int[]> expected = new HashMap<>();
         expected.put(1, new int[]{10,17,21});
-        assertTrue(areHashesEqual(actual, expected));
+        assertTrue(areHashesEqualInt(actual, expected));
     }
 
     @Test
@@ -141,4 +145,21 @@ public class AppTest
         game.readDataFile("data2.txt");
         assertTrue(game.parsedData.size() > 1);
     }
+
+    @Test
+    public void checkWhichGamesArePossibleWithInputtedDice(){
+        App game = new App();
+        int[] input = {12,13,14};
+        HashMap<Integer,Boolean> actual = game.checkViableGames(input);
+        HashMap<Integer, Boolean> expected = new HashMap<>();
+        expected.put(1, true);
+        expected.put(2, true);
+        expected.put(3, false);
+        expected.put(4, false);
+        expected.put(5, true);
+    
+        assertTrue(areHashesEqualBool(actual, expected));
+        
+    }
+
 }
