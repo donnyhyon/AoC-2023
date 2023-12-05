@@ -140,6 +140,5 @@ public class AppTest
         App game = new App();
         game.readDataFile("data2.txt");
         assertTrue(game.parsedData.size() > 1);
-
     }
 }

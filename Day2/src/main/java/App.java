@@ -7,7 +7,7 @@ import java.io.IOException;
 
 public class App 
 {
-    public HashMap<Integer, int[][]> parsedData = new HashMap<>();
+    public HashMap<Integer, int[]> parsedData = new HashMap<>();
 
 
     public static void main( String[] args )
@@ -73,10 +73,6 @@ public class App
         return Integer.parseInt(id);
     }
 
-    // public int[][] intDoubleWrap(int id){
-    //     return new int[][] {{id}};
-    // }
-
     public int processGameID(String gameID){
         String withoutGame = removeGame(gameID);
         int asInt = convertToInt(withoutGame);
@@ -104,21 +100,22 @@ public class App
         return parsedGameData;
     }
 
-    // public void readDataFile(String filePath) {
-    //     try {
-    //         FileReader reader = new FileReader(filePath);
-    //         BufferedReader bufferedReader = new BufferedReader(reader);
+    public void readDataFile(String filePath) {
+        try {
+            FileReader reader = new FileReader(filePath);
+            BufferedReader bufferedReader = new BufferedReader(reader);
 
-    //         String line;
-    //         while ((line = bufferedReader.readLine()) != null) {
-    //             String[] splitAtColon = colonSplit(line);
-    //             parsedData.put((processGameID(splitAtColon[0])),(processGameData(splitAtColon[1])));
-    //         }
-    //         bufferedReader.close();
-    //     }catch (IOException e) {
-    //         e.printStackTrace();
-    //     }
-    // }
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
+                
+
+                parsedData.putAll(processAGame(line));
+            }
+            bufferedReader.close();
+        }catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     public int[] totalDice(int[][] gameDice){
         int[] totals = new int[]{0,0,0};
