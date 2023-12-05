@@ -111,29 +111,41 @@ public class AppTest
     public void processGameResultData(){
         App game = new App();
         String input = "7 blue, 6 green, 3 red; 3 red, 5 green, 1 blue; 1 red, 5 green, 8 blue; 3 red, 1 green, 5 blue";
-        int[][] result = game.processGameData(input);
-        int[][] expectedResult = {{3,6,7},{3,5,1},{1,5,8},{3,1,5}};
-        assertEquals(Arrays.deepToString(result), Arrays.deepToString(expectedResult));
+        int[] result = game.processGameData(input);
+        int[] expectedResult = {10,17,21};
+        assertEquals(Arrays.toString(result), Arrays.toString(expectedResult));
     }
 
-    @Test
-    public void wrapGameIntInArrayArray(){
-        App game = new App();
-        int input = 1;
-        int[][] actual = game.intDoubleWrap(input);
-        int[][] expected = {{1}};
-        assertEquals(Arrays.deepToString(actual), Arrays.deepToString(expected));
-    }
 
-    @Test
-    public void processRawDataLine(){
-        App game = new App();
-        String input = "Game 1: 7 blue, 6 green, 3 red; 3 red, 5 green, 1 blue; 1 red, 5 green, 8 blue; 3 red, 1 green, 5 blue";
-        HashMap<Integer, int[][]> actual = game.processAGame(input);
-        HashMap<Integer, int[][]> expected = new HashMap<>();
-        expected.put(1, new int[][]{{3,6,7},{3,5,1},{1,5,8},{3,1,5}});
-        assertTrue(areHashesEqual(actual, expected));
-    }
+
+
+    // @Test
+    // public void processGameResultData(){
+    //     App game = new App();
+    //     String input = "7 blue, 6 green, 3 red; 3 red, 5 green, 1 blue; 1 red, 5 green, 8 blue; 3 red, 1 green, 5 blue";
+    //     int[][] result = game.processGameData(input);
+    //     int[][] expectedResult = {{3,6,7},{3,5,1},{1,5,8},{3,1,5}};
+    //     assertEquals(Arrays.deepToString(result), Arrays.deepToString(expectedResult));
+    // }
+
+    // @Test
+    // public void wrapGameIntInArrayArray(){
+    //     App game = new App();
+    //     int input = 1;
+    //     int[][] actual = game.intDoubleWrap(input);
+    //     int[][] expected = {{1}};
+    //     assertEquals(Arrays.deepToString(actual), Arrays.deepToString(expected));
+    // }
+
+    // @Test
+    // public void processRawDataLine(){
+    //     App game = new App();
+    //     String input = "Game 1: 7 blue, 6 green, 3 red; 3 red, 5 green, 1 blue; 1 red, 5 green, 8 blue; 3 red, 1 green, 5 blue";
+    //     HashMap<Integer, int[][]> actual = game.processAGame(input);
+    //     HashMap<Integer, int[][]> expected = new HashMap<>();
+    //     expected.put(1, new int[][]{{3,6,7},{3,5,1},{1,5,8},{3,1,5}});
+    //     assertTrue(areHashesEqual(actual, expected));
+    // }
 
     public void totalAllDice(){
         App game = new App();

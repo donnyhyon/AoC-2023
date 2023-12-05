@@ -73,9 +73,9 @@ public class App
         return Integer.parseInt(id);
     }
 
-    public int[][] intDoubleWrap(int id){
-        return new int[][] {{id}};
-    }
+    // public int[][] intDoubleWrap(int id){
+    //     return new int[][] {{id}};
+    // }
 
     public int processGameID(String gameID){
         String withoutGame = removeGame(gameID);
@@ -83,41 +83,55 @@ public class App
         return asInt;
     }
 
-    public int[][] processGameData(String gameResultData){
-        String[] splitGames = semiColonSplit(gameResultData);
-
+    public int[] processGameData(String gameData){
+        int[] gameTotal = new int[3];
+        String[] splitGames = semiColonSplit(gameData);
         int[][] processedGameData = new int[splitGames.length][3];
-        for (int i = 0 ; i < splitGames.length ; i++ ) {
+        for (int i = 0 ; i < splitGames.length ; i++) {
             String oneGame = splitGames[i];
             String[] splitGame = commaSplit(oneGame);
             String[] orderedSplitGame = orderToRGB(splitGame);
             processedGameData[i] = convertToIntArray(orderedSplitGame);
         }
-        return processedGameData;
+        gameTotal = totalDice(processedGameData);
+        return gameTotal;
     }
 
-    public HashMap<Integer, int[][]> processAGame(String gameData){
-        HashMap<Integer, int[][]> parsedGameData = new HashMap<>();
-        String[] splitAtColon = colonSplit(gameData);
-        parsedGameData.put((processGameID(splitAtColon[0])),(processGameData(splitAtColon[1])));
-        return parsedGameData;
-    }
+    // public int[][] processGameData(String gameResultData){
+    //     String[] splitGames = semiColonSplit(gameResultData);
 
-    public void readDataFile(String filePath) {
-        try {
-            FileReader reader = new FileReader(filePath);
-            BufferedReader bufferedReader = new BufferedReader(reader);
+    //     int[][] processedGameData = new int[splitGames.length][3];
+    //     for (int i = 0 ; i < splitGames.length ; i++ ) {
+    //         String oneGame = splitGames[i];
+    //         String[] splitGame = commaSplit(oneGame);
+    //         String[] orderedSplitGame = orderToRGB(splitGame);
+    //         processedGameData[i] = convertToIntArray(orderedSplitGame);
+    //     }
+    //     return processedGameData;
+    // }
 
-            String line;
-            while ((line = bufferedReader.readLine()) != null) {
-                String[] splitAtColon = colonSplit(line);
-                parsedData.put((processGameID(splitAtColon[0])),(processGameData(splitAtColon[1])));
-            }
-            bufferedReader.close();
-        }catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+    // public HashMap<Integer, int[][]> processAGame(String gameData){
+    //     HashMap<Integer, int[][]> parsedGameData = new HashMap<>();
+    //     String[] splitAtColon = colonSplit(gameData);
+    //     parsedGameData.put((processGameID(splitAtColon[0])),(processGameData(splitAtColon[1])));
+    //     return parsedGameData;
+    // }
+
+    // public void readDataFile(String filePath) {
+    //     try {
+    //         FileReader reader = new FileReader(filePath);
+    //         BufferedReader bufferedReader = new BufferedReader(reader);
+
+    //         String line;
+    //         while ((line = bufferedReader.readLine()) != null) {
+    //             String[] splitAtColon = colonSplit(line);
+    //             parsedData.put((processGameID(splitAtColon[0])),(processGameData(splitAtColon[1])));
+    //         }
+    //         bufferedReader.close();
+    //     }catch (IOException e) {
+    //         e.printStackTrace();
+    //     }
+    // }
 
     public int[] totalDice(int[][] gameDice){
         int[] totals = new int[]{0,0,0};
