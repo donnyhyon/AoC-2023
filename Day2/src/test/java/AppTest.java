@@ -150,6 +150,7 @@ public class AppTest
     public void checkWhichGamesArePossibleWithInputtedDice(){
         App game = new App();
         int[] input = {12,13,14};
+        game.readDataFile("data2.txt");
         HashMap<Integer,Boolean> actual = game.checkViableGames(input);
         HashMap<Integer, Boolean> expected = new HashMap<>();
         expected.put(1, true);
@@ -157,9 +158,7 @@ public class AppTest
         expected.put(3, false);
         expected.put(4, false);
         expected.put(5, true);
-    
-        assertTrue(areHashesEqualBool(actual, expected));
-        
+        assertTrue(areHashesEqualBool(actual, expected)); 
     }
 
 }
