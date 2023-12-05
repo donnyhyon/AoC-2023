@@ -116,27 +116,6 @@ public class AppTest
         assertEquals(Arrays.toString(result), Arrays.toString(expectedResult));
     }
 
-
-
-
-    // @Test
-    // public void processGameResultData(){
-    //     App game = new App();
-    //     String input = "7 blue, 6 green, 3 red; 3 red, 5 green, 1 blue; 1 red, 5 green, 8 blue; 3 red, 1 green, 5 blue";
-    //     int[][] result = game.processGameData(input);
-    //     int[][] expectedResult = {{3,6,7},{3,5,1},{1,5,8},{3,1,5}};
-    //     assertEquals(Arrays.deepToString(result), Arrays.deepToString(expectedResult));
-    // }
-
-    // @Test
-    // public void wrapGameIntInArrayArray(){
-    //     App game = new App();
-    //     int input = 1;
-    //     int[][] actual = game.intDoubleWrap(input);
-    //     int[][] expected = {{1}};
-    //     assertEquals(Arrays.deepToString(actual), Arrays.deepToString(expected));
-    // }
-
     @Test
     public void processRawDataLine(){
         App game = new App();
@@ -147,11 +126,20 @@ public class AppTest
         assertTrue(areHashesEqual(actual, expected));
     }
 
+    @Test
     public void totalAllDice(){
         App game = new App();
         int[][] input = new int[][]{{3,6,7},{3,5,1},{1,5,8},{3,1,5}};
         int[] actual = game.totalDice(input);
         int[] expected = {10,17,21};
-        assertEquals(actual, expected);
+        assertEquals(Arrays.toString(actual), Arrays.toString(expected));
+    }
+
+    @Test
+    public void parseRawData(){
+        App game = new App();
+        game.readDataFile("data2.txt");
+        assertTrue(game.parsedData.size() > 1);
+
     }
 }

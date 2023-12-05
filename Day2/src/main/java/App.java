@@ -7,7 +7,7 @@ import java.io.IOException;
 
 public class App 
 {
-    private HashMap<Integer, int[][]> parsedData = new HashMap<>();
+    public HashMap<Integer, int[][]> parsedData = new HashMap<>();
 
 
     public static void main( String[] args )
