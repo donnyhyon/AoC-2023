@@ -97,25 +97,12 @@ public class App
         return gameTotal;
     }
 
-    // public int[][] processGameData(String gameResultData){
-    //     String[] splitGames = semiColonSplit(gameResultData);
-
-    //     int[][] processedGameData = new int[splitGames.length][3];
-    //     for (int i = 0 ; i < splitGames.length ; i++ ) {
-    //         String oneGame = splitGames[i];
-    //         String[] splitGame = commaSplit(oneGame);
-    //         String[] orderedSplitGame = orderToRGB(splitGame);
-    //         processedGameData[i] = convertToIntArray(orderedSplitGame);
-    //     }
-    //     return processedGameData;
-    // }
-
-    // public HashMap<Integer, int[][]> processAGame(String gameData){
-    //     HashMap<Integer, int[][]> parsedGameData = new HashMap<>();
-    //     String[] splitAtColon = colonSplit(gameData);
-    //     parsedGameData.put((processGameID(splitAtColon[0])),(processGameData(splitAtColon[1])));
-    //     return parsedGameData;
-    // }
+    public HashMap<Integer, int[]> processAGame(String gameData){
+        HashMap<Integer,int[]> parsedGameData = new HashMap<>();
+        String[] splitAtColon = colonSplit(gameData);
+        parsedGameData.put((processGameID(splitAtColon[0])), (processGameData(splitAtColon[1])));
+        return parsedGameData;
+    }
 
     // public void readDataFile(String filePath) {
     //     try {
