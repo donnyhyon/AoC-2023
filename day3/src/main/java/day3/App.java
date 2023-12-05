@@ -1,0 +1,9 @@
+package day3.src.main.java.day3;
+
+public class App 
+{
+    public static void main( String[] args )
+    {
+        System.out.println( "Hello World!" );
+    }
+}
