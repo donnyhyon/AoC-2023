@@ -161,4 +161,19 @@ public class AppTest
         assertTrue(areHashesEqualBool(actual, expected)); 
     }
 
+    @Test
+    public void sumUpViableGames(){
+        App game = new App();
+        HashMap<Integer, Boolean> input = new HashMap<>();
+        input.put(1, true);
+        input.put(2, true);
+        input.put(3, false);
+        input.put(4, false);
+        input.put(5, true);
+        int actual = game.getAnswer();
+        int expected = 8;
+        assertEquals(actual, expected);
+
+    }
+
 }
