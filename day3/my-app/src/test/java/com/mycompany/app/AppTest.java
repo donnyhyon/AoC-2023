@@ -1,6 +1,6 @@
-package day3.src.test.java.day3;
+package com.mycompany.app;
 
-import org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 

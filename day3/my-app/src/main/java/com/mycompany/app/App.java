@@ -1,9 +1,9 @@
-package day3.src.main.java.day3;
+package com.mycompany.app;
 
 public class App 
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+        System.out.println( "Hello day3" );
     }
 }
