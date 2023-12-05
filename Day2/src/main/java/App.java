@@ -2,6 +2,7 @@ import javax.naming.StringRefAddr;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -9,6 +10,8 @@ import java.io.IOException;
 public class App 
 {
     public HashMap<Integer, int[]> parsedData = new HashMap<>();
+    public HashMap<Integer, Boolean> viableGames = new HashMap<>();
+
 
 
     public static void main( String[] args )
@@ -146,7 +149,19 @@ public class App
             }
 
         }
-        System.out.println(viableGames);
         return viableGames;
+    }
+
+    public int getAnswer(HashMap<Integer,Boolean> viableGames){
+        int answer = 0;
+        for (Entry<Integer, Boolean> entry : viableGames.entrySet()){
+            Integer key = entry.getKey();
+            Boolean value = entry.getValue();
+            if (value == true) {
+                answer += key;
+            }
+        }
+        System.out.println(answer);
+        return answer;
     }
 }   

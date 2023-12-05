@@ -164,16 +164,23 @@ public class AppTest
     @Test
     public void sumUpViableGames(){
         App game = new App();
-        HashMap<Integer, Boolean> input = new HashMap<>();
-        input.put(1, true);
-        input.put(2, true);
-        input.put(3, false);
-        input.put(4, false);
-        input.put(5, true);
-        int actual = game.getAnswer();
+        int[] totalDice = {12,13,14};
+        game.readDataFile("data2.txt");
+        HashMap<Integer,Boolean> viableGames = game.checkViableGames(totalDice);
+        int actual = game.getAnswer( viableGames );
         int expected = 8;
         assertEquals(actual, expected);
 
     }
+
+        @Test
+        public void sumUpViableGamesRealGame(){
+        App game = new App();
+        int[] totalDice = {12,13,14};
+        game.readDataFile("data.txt");
+        HashMap<Integer,Boolean> viableGames = game.checkViableGames(totalDice);
+        int actual = game.getAnswer( viableGames );
+    }
+
 
 }
