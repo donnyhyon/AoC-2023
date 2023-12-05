@@ -2,7 +2,6 @@ import javax.naming.StringRefAddr;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -152,6 +151,31 @@ public class App
         }
         return viableGames;
     }
+
+        public int getAllMaxDiceNeeded(){
+        HashMap<Integer, Integer> maxDicePerGamePowered = new HashMap<>();
+        for (Map.Entry<Integer, int[]> entry : parsedData.entrySet()) {
+            int[] maxDiceRequiredPerGame = new int[]{0,0,0};
+            Integer key = entry.getKey();
+            int[] value = entry.getValue();
+            for(int i = 0 ; i < 3 ; i++) {
+                if (value[i] > maxDiceRequiredPerGame[i]) {
+                    maxDiceRequiredPerGame[i] = value[i];
+                }
+            int powered = maxDiceRequiredPerGame[0] * maxDiceRequiredPerGame[1] * maxDiceRequiredPerGame[2];
+            maxDicePerGamePowered.put(key, powered);
+            }
+        }
+        int finalGameTotal = 0;
+        for (Map.Entry<Integer, Integer> entry: maxDicePerGamePowered.entrySet()){
+            Integer value = entry.getValue();
+            finalGameTotal += value;
+        }
+        System.out.println(finalGameTotal);
+        return finalGameTotal;
+    }
+
+
 
     public int getAnswer(HashMap<Integer,Boolean> viableGames){
         int answer = 0;

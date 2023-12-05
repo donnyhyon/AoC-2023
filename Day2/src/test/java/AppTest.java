@@ -179,10 +179,20 @@ public class AppTest
         int[] totalDice = {12,13,14};
         game.readDataFile("data.txt");
         HashMap<Integer,Boolean> viableGames = game.checkViableGames(totalDice);
-        System.out.println(viableGames.size());
         int actual = game.getAnswer( viableGames );
-        
     }
+
+    @Test
+    public void getMinValueForAllGames(){
+        App game = new App();
+        game.readDataFile("data.txt");
+
+        game.getAllMaxDiceNeeded();
+
+
+    }
+
+
 
 
 }
