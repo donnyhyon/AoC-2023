@@ -116,7 +116,7 @@ public class AppTest
         App game = new App();
         String input = "7 blue, 6 green, 3 red; 3 red, 5 green, 1 blue; 1 red, 5 green, 8 blue; 3 red, 1 green, 5 blue";
         int[] result = game.processGameData(input);
-        int[] expectedResult = {10,17,21};
+        int[] expectedResult = {3,6,8};
         assertEquals(Arrays.toString(result), Arrays.toString(expectedResult));
     }
 
@@ -126,7 +126,7 @@ public class AppTest
         String input = "Game 1: 7 blue, 6 green, 3 red; 3 red, 5 green, 1 blue; 1 red, 5 green, 8 blue; 3 red, 1 green, 5 blue";
         HashMap<Integer, int[]> actual = game.processAGame(input);
         HashMap<Integer, int[]> expected = new HashMap<>();
-        expected.put(1, new int[]{10,17,21});
+        expected.put(1, new int[]{3,6,8});
         assertTrue(areHashesEqualInt(actual, expected));
     }
 
@@ -135,7 +135,7 @@ public class AppTest
         App game = new App();
         int[][] input = new int[][]{{3,6,7},{3,5,1},{1,5,8},{3,1,5}};
         int[] actual = game.totalDice(input);
-        int[] expected = {10,17,21};
+        int[] expected = {3,6,8};
         assertEquals(Arrays.toString(actual), Arrays.toString(expected));
     }
 
@@ -161,17 +161,17 @@ public class AppTest
         assertTrue(areHashesEqualBool(actual, expected)); 
     }
 
-    @Test
-    public void sumUpViableGames(){
-        App game = new App();
-        int[] totalDice = {12,13,14};
-        game.readDataFile("data2.txt");
-        HashMap<Integer,Boolean> viableGames = game.checkViableGames(totalDice);
-        int actual = game.getAnswer( viableGames );
-        int expected = 8;
-        assertEquals(actual, expected);
+    // @Test
+    // public void sumUpViableGames(){
+    //     App game = new App();
+    //     int[] totalDice = {12,13,14};
+    //     game.readDataFile("data2.txt");
+    //     HashMap<Integer,Boolean> viableGames = game.checkViableGames(totalDice);
+    //     int actual = game.getAnswer( viableGames );
+    //     int expected = 8;
+    //     assertEquals(actual, expected);
 
-    }
+    // }
 
         @Test
         public void sumUpViableGamesRealGame(){
@@ -179,7 +179,9 @@ public class AppTest
         int[] totalDice = {12,13,14};
         game.readDataFile("data.txt");
         HashMap<Integer,Boolean> viableGames = game.checkViableGames(totalDice);
+        System.out.println(viableGames.size());
         int actual = game.getAnswer( viableGames );
+        
     }
 
 

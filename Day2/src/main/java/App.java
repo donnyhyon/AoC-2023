@@ -112,7 +112,6 @@ public class App
             String line;
             while ((line = bufferedReader.readLine()) != null) {
                 
-
                 parsedData.putAll(processAGame(line));
             }
             bufferedReader.close();
@@ -126,7 +125,9 @@ public class App
 
         for (int[]set : gameDice) {
             for (int i = 0 ; i < set.length ; i ++){
-                totals[i] += set[i];
+                if(totals[i] < set[i]){
+                    totals[i] = set[i];
+                }
             }
         }
         return totals;
@@ -154,11 +155,14 @@ public class App
 
     public int getAnswer(HashMap<Integer,Boolean> viableGames){
         int answer = 0;
-        for (Entry<Integer, Boolean> entry : viableGames.entrySet()){
+        for (Map.Entry<Integer, Boolean> entry : viableGames.entrySet()){
             Integer key = entry.getKey();
             Boolean value = entry.getValue();
             if (value == true) {
                 answer += key;
+            }
+            else {
+                continue;
             }
         }
         System.out.println(answer);
