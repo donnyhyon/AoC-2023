@@ -3,6 +3,8 @@ package com.mycompany.app;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.io.BufferedReader;
 import java.io.FileReader;
 
@@ -12,7 +14,6 @@ public class App
     {
         System.out.println( "Hello day3" );
     }
-
 
     public String[] readDataFile(String filepath){
         int lineCount = 0;
@@ -40,6 +41,18 @@ public class App
         }
         return parsedLines;
     }
+
+    public List<String> findNumbersInALine(String aLine) {
+        List<String> numbersInALine = new ArrayList<>();
+        Pattern pattern = Pattern.compile("\\d+");
+        Matcher matcher = pattern.matcher(aLine);
+        while(matcher.find()){
+            numbersInALine.add(matcher.group());
+        }
+        return numbersInALine;
+    }
+
+
 
 }
 
