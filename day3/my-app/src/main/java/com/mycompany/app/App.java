@@ -2,6 +2,7 @@ package com.mycompany.app;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -50,6 +51,26 @@ public class App
             numbersInALine.add(matcher.group());
         }
         return numbersInALine;
+    }
+
+    public HashMap<String, int[]> getIndicies(List<String> numbersInALine, String theLine) {
+        HashMap<String, int[]> numberToIndicies = new HashMap<>();
+        for (String aNumber : numbersInALine) {
+            int lengthOfNumber = aNumber.length();
+            int startingIndexOfNumber = theLine.indexOf(aNumber);
+            int[] numberIndicies = new int[lengthOfNumber];
+            for(int i = 0 ; i < lengthOfNumber ; i ++ ) {
+                if(i == 0){
+                    numberIndicies[i] = startingIndexOfNumber;
+                } else {
+                    numberIndicies[i] = startingIndexOfNumber + i ;
+                }
+
+            }
+
+            numberToIndicies.put(aNumber, numberIndicies);
+        }
+        return numberToIndicies;
     }
 
 
