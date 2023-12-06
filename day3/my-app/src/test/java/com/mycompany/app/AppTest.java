@@ -1,5 +1,6 @@
 package com.mycompany.app;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import java.util.List;
@@ -13,7 +14,15 @@ public class AppTest
     {
         App game = new App();
         List<String> file = game.readDataFile("data2.txt");
-        // System.out.println(file);
+        assertEquals(file.get(0), "467..114..");
+        assertEquals(file.get(3), "......#...");
+    }
+
+    @Test
+    public void splitDataInto2DArray(){
+        App game = new App();
+        List<String> file = game.readDataFile("data2.txt");
+
     }
 
     
