@@ -13,16 +13,16 @@ public class AppTest
     public void shouldParseFile()
     {
         App game = new App();
-        List<String> file = game.readDataFile("data2.txt");
-        assertEquals(file.get(0), "467..114..");
-        assertEquals(file.get(3), "......#...");
+        String[] file = game.readDataFile("data2.txt");
+        assertEquals(file[0], "467..114..");
+        assertEquals(file[3], "......#...");
     }
 
     @Test
-    public void splitDataInto2DArray(){
+    public void findNumbersWithinALine(){
         App game = new App();
-        List<String> file = game.readDataFile("data2.txt");
-
+        String[] file = game.readDataFile("data2.txt");
+        String line1 = file[0];
     }
 
     

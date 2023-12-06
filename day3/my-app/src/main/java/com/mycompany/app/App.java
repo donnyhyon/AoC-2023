@@ -13,14 +13,39 @@ public class App
         System.out.println( "Hello day3" );
     }
 
-    public List<String> readDataFile(String filepath){
-        List<String> parsedLines = new ArrayList<>();
+    public int countLinesInFile(String filepath){
+        int lineCount = 0;
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(filepath));
+            while (reader.readLine() != null) {
+                lineCount++;
+            }
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return lineCount;
+    }
+
+    public String[] readDataFile(String filepath){
+        int lineCount = 0;
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(filepath));
+            while (reader.readLine() != null) {
+                lineCount++;
+            }
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        String[] parsedLines = new String[lineCount];
+        int onLine = 0;
         try {
             BufferedReader reader = new BufferedReader(new FileReader(filepath));
             String line;
             while ((line = reader.readLine()) != null) {
-
-                parsedLines.add(line);
+                parsedLines[onLine] = line;
+                onLine ++;
             }
             reader.close();
         } catch (IOException e) {
