@@ -11,6 +11,8 @@ import java.util.Map;
 
 import org.junit.Test;
 
+import com.mycompany.app.App.GameData;
+
 public class AppTest 
 {
 
@@ -31,16 +33,16 @@ public class AppTest
     public void shouldParseFile()
     {
         App game = new App();
-        String[] file = game.readDataFile("data2.txt");
-        assertEquals(file[0], "467..114..");
-        assertEquals(file[3], "......#...");
+        GameData result = game.readDataFile("data2.txt");
+        assertEquals(result.lines[0], "467..114..");
+        assertEquals(result.lines[3], "......#...");
     }
 
     @Test
     public void findNumbersWithinALine(){
         App game = new App();
-        String[] file = game.readDataFile("data2.txt");
-        String line1 = file[0];
+        GameData result = game.readDataFile("data2.txt");
+        String line1 = result.lines[0];
         List<String> actual = game.findNumbersInALine(line1);
         List<String> expected = Arrays.asList("467","114");
         assertEquals(actual,  expected);
@@ -50,14 +52,24 @@ public class AppTest
     public void getTheIndiciesOfTheNumberInTheLineItCameFrom(){
         App game = new App();
         List<String> input = Arrays.asList("467","114");
-        String[] file = game.readDataFile("data2.txt");
-        String line1 = file[0];
+        GameData result = game.readDataFile("data2.txt");
+        String line1 = result.lines[0];
         HashMap<String, int[]> actual = game.getIndicies(input, line1);
 
         HashMap<String, int[]> expected = new HashMap<>();
         expected.put("467",new int[]{0,1,2});
         expected.put("114", new int[]{5,6,7});
         assertTrue(areHashesEqual(actual, expected));
+    }
+
+    @Test
+    public void get1DIndexAndExpandInto3DIndex(){
+        App game = new App();
+        int[] input = new int[]{5,6,7};
+        int[] actual = game.expandGrid(input);
+        int[] expected = new int[]{4,5,6,7};
+        assertEquals(Arrays.toString(actual),Arrays.toString(expected));
+
     }
 
     

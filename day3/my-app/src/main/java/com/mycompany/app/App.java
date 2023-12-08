@@ -11,36 +11,43 @@ import java.io.FileReader;
 
 public class App 
 {
+    public class GameData{
+        public int lineCount;
+        public String[] lines;
+    }
+
+
     public static void main( )
     {
         System.out.println( "Hello day3" );
     }
 
-    public String[] readDataFile(String filepath){
-        int lineCount = 0;
+    public GameData readDataFile(String filepath){
+        GameData gameData = new GameData();
+        gameData.lineCount = 0;
         try {
             BufferedReader reader = new BufferedReader(new FileReader(filepath));
             while (reader.readLine() != null) {
-                lineCount++;
+                gameData.lineCount++;
             }
             reader.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        String[] parsedLines = new String[lineCount];
+        gameData.lines = new String[gameData.lineCount];
         int onLine = 0;
         try {
             BufferedReader reader = new BufferedReader(new FileReader(filepath));
             String line;
             while ((line = reader.readLine()) != null) {
-                parsedLines[onLine] = line;
+                gameData.lines[onLine] = line;
                 onLine ++;
             }
             reader.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return parsedLines;
+        return gameData;
     }
 
     public List<String> findNumbersInALine(String aLine) {
@@ -73,7 +80,10 @@ public class App
         return numberToIndicies;
     }
 
-
+    public int[] expandGrid(int[] oneDArray) {
+        int[] expandedArray = new int[oneDArray.length + 2];
+        return null;
+    }
 
 }
 
