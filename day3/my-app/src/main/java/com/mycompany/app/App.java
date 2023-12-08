@@ -80,9 +80,21 @@ public class App
         return numberToIndicies;
     }
 
-    public int[] expandGrid(int[] oneDArray) {
-        int[] expandedArray = new int[oneDArray.length + 2];
-        return null;
+    public List<Integer> expandGrid(int[] oneDArray) {
+        List<Integer> expandedArray = new ArrayList<Integer>();
+        for (int i = 0; i <  oneDArray.length; i++ ) {
+            if (i == 0){
+                expandedArray.add(oneDArray[i] - 1);
+                expandedArray.add(oneDArray[i]);
+            } else if ( i == oneDArray.length -1){
+                expandedArray.add(oneDArray[i]);
+                expandedArray.add(oneDArray[i] + 1);
+            } else {
+                expandedArray.add(oneDArray[i]);
+            }
+        }
+            
+        return expandedArray;
     }
 
 }

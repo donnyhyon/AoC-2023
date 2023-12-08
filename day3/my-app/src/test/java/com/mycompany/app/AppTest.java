@@ -3,6 +3,7 @@ package com.mycompany.app;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
@@ -33,16 +34,16 @@ public class AppTest
     public void shouldParseFile()
     {
         App game = new App();
-        GameData result = game.readDataFile("data2.txt");
-        assertEquals(result.lines[0], "467..114..");
-        assertEquals(result.lines[3], "......#...");
+        GameData gameData = game.readDataFile("data2.txt");
+        assertEquals(gameData.lines[0], "467..114..");
+        assertEquals(gameData.lines[3], "......#...");
     }
 
     @Test
     public void findNumbersWithinALine(){
         App game = new App();
-        GameData result = game.readDataFile("data2.txt");
-        String line1 = result.lines[0];
+        GameData gameData = game.readDataFile("data2.txt");
+        String line1 = gameData.lines[0];
         List<String> actual = game.findNumbersInALine(line1);
         List<String> expected = Arrays.asList("467","114");
         assertEquals(actual,  expected);
@@ -52,8 +53,8 @@ public class AppTest
     public void getTheIndiciesOfTheNumberInTheLineItCameFrom(){
         App game = new App();
         List<String> input = Arrays.asList("467","114");
-        GameData result = game.readDataFile("data2.txt");
-        String line1 = result.lines[0];
+        GameData gameData = game.readDataFile("data2.txt");
+        String line1 = gameData.lines[0];
         HashMap<String, int[]> actual = game.getIndicies(input, line1);
 
         HashMap<String, int[]> expected = new HashMap<>();
@@ -66,9 +67,14 @@ public class AppTest
     public void get1DIndexAndExpandInto3DIndex(){
         App game = new App();
         int[] input = new int[]{5,6,7};
-        int[] actual = game.expandGrid(input);
-        int[] expected = new int[]{4,5,6,7};
-        assertEquals(Arrays.toString(actual),Arrays.toString(expected));
+        List<Integer>  actual = game.expandGrid(input);
+        List<Integer>  expected = new ArrayList<>();
+        expected.add(4);
+        expected.add(5);
+        expected.add(6);
+        expected.add(7);
+        expected.add(8);      
+        assertEquals(expected, actual);
 
     }
 
