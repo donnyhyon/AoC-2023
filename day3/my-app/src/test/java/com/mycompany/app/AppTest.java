@@ -119,6 +119,18 @@ public class AppTest
         Boolean actual = game.checkForSpecialCharacters(lineInput, desiredIndexRange);
         Boolean expected = true;
         assertEquals(expected, actual);
+    }
+
+    @Test
+    public void find_special_characters_in_2D_array(){
+        App game = new App();
+        String[] lineInputs = new String[]{"£$23456789","01%$456789", "01234*&789"};
+        List<Integer> desiredIndexRange = new ArrayList<>();
+        desiredIndexRange.add(8);
+        desiredIndexRange.add(10);
+        Boolean actual = game.process3dGrid(lineInputs, desiredIndexRange);
+        Boolean expected = false;
+        assertEquals(expected, actual);
 
     }
 
