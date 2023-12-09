@@ -163,13 +163,26 @@ public class AppTest
         game.readDataFile("data2.txt");
         List<String> actual = game.getPartNumbers();
         List<String> expected = new ArrayList<>();
-        expected.add("114");
-        expected.add("58");
+        expected.add("467");
+        expected.add("35");
+        expected.add("633");
+        expected.add("617");
+        expected.add("592");
+        expected.add("755");
+        expected.add("664");
+        expected.add("598");
         assertEquals(expected, actual);
-
     }
 
-
+    @Test
+    public void return_game_answer(){
+        App game = new App();
+        game.readDataFile("data2.txt");
+        List<String> partNumbers = game.getPartNumbers();
+        int actual = game.getAnswer(partNumbers);
+        int expected = 4361;
+        assertEquals(expected, actual);
+    }
 
     
     // parse data table into x and y co-ords

@@ -2,6 +2,7 @@ package com.mycompany.app;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.lang.Integer;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -158,15 +159,25 @@ public class App
                 int[] value = entry.getValue();
                 List<Integer> expandedOneDIndex = expandGrid(value);  
                 Boolean containsSpecialCharacters = process3dGrid(linesToCheck, expandedOneDIndex );
-                if (!containsSpecialCharacters){
+                if (containsSpecialCharacters){
+                    System.out.println(key);
                     partNumbers.add(key);
                 }
             }
 
         }
+        
         return partNumbers;
     }
 
+
+    public int getAnswer(List<String> partNumbers) {
+        int count = 0;
+        for (String partNumber : partNumbers) {
+            count += Integer.parseInt(partNumber);
+        }
+        return count;
+    }
 
 
 }
