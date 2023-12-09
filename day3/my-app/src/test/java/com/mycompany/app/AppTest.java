@@ -104,7 +104,9 @@ public class AppTest
         desiredIndexRange.add(8);
         desiredIndexRange.add(10);
         Boolean actual = game.checkForSpecialCharacters(lineInput, desiredIndexRange);
-        Boolean expecter = false;
+        Boolean expected = false;
+                assertEquals(expected, actual);
+
     }
 
 
