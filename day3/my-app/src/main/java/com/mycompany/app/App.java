@@ -2,8 +2,11 @@ package com.mycompany.app;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.io.BufferedReader;
@@ -112,8 +115,51 @@ public class App
         Boolean containsSpecialCharacter = false;
         for (int i = 0 ; i < lineInputs.length ; i ++) {
             containsSpecialCharacter = checkForSpecialCharacters(lineInputs[i], desiredIndexRange);
+            if (containsSpecialCharacter) {break;}
+            System.out.println("checking for characters on line " +  lineInputs[i]);
         }
         return containsSpecialCharacter;
+    }
+
+    public List<String> getPartNumbers() {
+        List<String> partNumbers = new ArrayList<>();
+        for (int i = 0; i < GameData.lineCount; i++) {
+            List<String> numbersInALine = findNumbersInALine(GameData.lines[i]);
+
+            Boolean firstLine = (i == 0);
+            Boolean lastLine = (i == GameData.lineCount -1);
+
+            String[] linesToCheck = new String[3];
+            if (firstLine) { 
+                linesToCheck[0] = GameData.lines[i];
+                linesToCheck[1] =  GameData.lines[i];
+                linesToCheck[2] =  GameData.lines[i +1];
+            } else if (lastLine) {
+                linesToCheck[0] = GameData.lines[i -1];
+                linesToCheck[1] =  GameData.lines[i];
+                linesToCheck[2] =  GameData.lines[i];
+            } else {
+                linesToCheck[0] = GameData.lines[i -1];
+                linesToCheck[1] =  GameData.lines[i];
+                linesToCheck[2] =  GameData.lines[i + 1];  
+            }
+            
+            HashMap<String, int[]> numberIndexMap = getIndicies(numbersInALine, GameData.lines[i]);
+            
+            for (Map.Entry<String, int[]> entry: numberIndexMap.entrySet()) {
+                String key = entry.getKey();
+                int[] value = entry.getValue();
+                List<Integer> expandedOneDIndex = expandGrid(value);  
+                System.out.println(key);
+                Boolean containsSpecialCharacters = process3dGrid(linesToCheck, expandedOneDIndex );
+                System.out.println("checking if " + key + " has any special characters between " + Arrays.toString(linesToCheck) + "| has special chars: " + containsSpecialCharacters);
+                if (!containsSpecialCharacters){
+                    partNumbers.add(key);
+                }
+            }
+
+        }
+        return partNumbers;
     }
 
 
