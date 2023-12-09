@@ -1,7 +1,9 @@
 package day4;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import java.io.FileReader;
 import java.io.BufferedReader;
@@ -15,8 +17,8 @@ public class App
 
     public class Card
     {
-        String[] winningNumbers;
-        String[] usersNumbers;
+        Set<Integer> winningNumbers;
+        Set<Integer> usersNumbers;
     }
     
     public static void main( String[] args )
@@ -36,7 +38,7 @@ public class App
 
             String line;
             while ((line = bufferedReader.readLine()) != null) {
-                lines.add(line);
+                System.out.println(line);
             }
             bufferedReader.close();
         } catch (IOException e) {
@@ -45,8 +47,8 @@ public class App
         rawData = lines.toArray(new String[0]);
     }
 
-    public Card splitScoreCard() {
-        
-        return Card;
+    public Card splitScoreCard(String aScoreCard) {
+
+        return null;
     }
 }
