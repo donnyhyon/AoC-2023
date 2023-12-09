@@ -95,7 +95,7 @@ public class App
                 int numberToAdd = oneDArray[0] == 0 ?  oneDArray[i] : oneDArray[i] - 1;
                 expandedArray.add(numberToAdd);
             } else if ( i == oneDArray.length -1){
-                int numberToAdd = oneDArray[oneDArray.length -1] == lengthOfLine ?  oneDArray[i] : oneDArray[i] + 1;
+                int numberToAdd = oneDArray[oneDArray.length -1] == lengthOfLine ?  oneDArray[i]  : oneDArray[i] + 1;
                 expandedArray.add(numberToAdd);
             } else {
                 continue;
@@ -105,18 +105,25 @@ public class App
     }
 
     public Boolean checkForSpecialCharacters(String lineInput, List<Integer> desiredIndexRange) {
-        String subSetOfStringToCheck = lineInput.substring(desiredIndexRange.get(0), desiredIndexRange.get(desiredIndexRange.size() -1));
-        Pattern pattern = Pattern.compile("[&/*@=\\-%+]");
+        String subSetOfStringToCheck = lineInput.substring(desiredIndexRange.get(0), (desiredIndexRange.get(desiredIndexRange.size() -1) + 1));
+        Pattern pattern = Pattern.compile("[&/*@$#=\\-%+]");
         Matcher matcher = pattern.matcher(subSetOfStringToCheck);
-        return matcher.find();
+        Boolean answer = matcher.find();
+        if (answer == true){
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public Boolean process3dGrid(String[] lineInputs, List<Integer> desiredIndexRange) {
         Boolean containsSpecialCharacter = false;
         for (int i = 0 ; i < lineInputs.length ; i ++) {
-            containsSpecialCharacter = checkForSpecialCharacters(lineInputs[i], desiredIndexRange);
-            if (containsSpecialCharacter) {break;}
-            System.out.println("checking for characters on line " +  lineInputs[i]);
+            Boolean newanswer = checkForSpecialCharacters(lineInputs[i], desiredIndexRange);
+            if (newanswer == true) {
+                containsSpecialCharacter = true;
+                break;
+            }
         }
         return containsSpecialCharacter;
     }
@@ -150,9 +157,7 @@ public class App
                 String key = entry.getKey();
                 int[] value = entry.getValue();
                 List<Integer> expandedOneDIndex = expandGrid(value);  
-                System.out.println(key);
                 Boolean containsSpecialCharacters = process3dGrid(linesToCheck, expandedOneDIndex );
-                System.out.println("checking if " + key + " has any special characters between " + Arrays.toString(linesToCheck) + "| has special chars: " + containsSpecialCharacters);
                 if (!containsSpecialCharacters){
                     partNumbers.add(key);
                 }
