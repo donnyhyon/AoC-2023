@@ -103,15 +103,17 @@ public class App
 
     public Boolean checkForSpecialCharacters(String lineInput, List<Integer> desiredIndexRange) {
         String subSetOfStringToCheck = lineInput.substring(desiredIndexRange.get(0), desiredIndexRange.get(desiredIndexRange.size() -1));
-        System.out.println(subSetOfStringToCheck);
-
         Pattern pattern = Pattern.compile("[&/*@=\\-%+]");
         Matcher matcher = pattern.matcher(subSetOfStringToCheck);
         return matcher.find();
     }
 
     public Boolean process3dGrid(String[] lineInputs, List<Integer> desiredIndexRange) {
-        return null;
+        Boolean containsSpecialCharacter = false;
+        for (int i = 0 ; i < lineInputs.length ; i ++) {
+            containsSpecialCharacter = checkForSpecialCharacters(lineInputs[i], desiredIndexRange);
+        }
+        return containsSpecialCharacter;
     }
 
 
