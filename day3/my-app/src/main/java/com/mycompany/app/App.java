@@ -11,13 +11,17 @@ import java.io.FileReader;
 
 public class App 
 {
-    public class GameData{
-        public int lineCount;
-        public String[] lines;
+    public static class GameData{
+        public static int lineCount;
+        public static String[] lines;
+
+        public static int getLineCount(){
+            return lineCount;
+        }
     }
 
 
-    public static void main( )
+    public static void main(String[] args )
     {
         System.out.println( "Hello day3" );
     }
@@ -81,17 +85,19 @@ public class App
     }
 
     public List<Integer> expandGrid(int[] oneDArray) {
+        int lengthOfLine = GameData.getLineCount();
         List<Integer> expandedArray = new ArrayList<Integer>();
         for (int i = 0; i <  oneDArray.length; i++ ) {
             if (i == 0){
                 int numberToAdd = oneDArray[0] == 0 ?  oneDArray[i] : oneDArray[i] - 1;
                 expandedArray.add(numberToAdd);
             } else if ( i == oneDArray.length -1){
-                
-                expandedArray.add(oneDArray[i] + 1);
+                int numberToAdd = oneDArray[oneDArray.length -1] == lengthOfLine ?  oneDArray[i] : oneDArray[i] + 1;
+                expandedArray.add(numberToAdd);
+            } else {
+                continue;
             }
         }
-            
         return expandedArray;
     }
 
