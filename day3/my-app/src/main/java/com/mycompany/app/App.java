@@ -84,8 +84,10 @@ public class App
         List<Integer> expandedArray = new ArrayList<Integer>();
         for (int i = 0; i <  oneDArray.length; i++ ) {
             if (i == 0){
-                expandedArray.add(oneDArray[i] - 1);
+                int numberToAdd = oneDArray[0] == 0 ?  oneDArray[i] : oneDArray[i] - 1;
+                expandedArray.add(numberToAdd);
             } else if ( i == oneDArray.length -1){
+                
                 expandedArray.add(oneDArray[i] + 1);
             }
         }

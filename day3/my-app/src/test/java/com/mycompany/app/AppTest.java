@@ -74,6 +74,17 @@ public class AppTest
         assertEquals(expected, actual);
     }
 
+        @Test
+        public void get1DIndexAndExpandInto3DIndexWhenAtAnEdge(){
+            App game = new App();
+            int[] input = new int[]{0,1,2};
+            List<Integer>  actual = game.expandGrid(input);
+            List<Integer>  expected = new ArrayList<>();
+            expected.add(0);
+            expected.add(3);      
+            assertEquals(expected, actual);
+    }
+
     // @Test
     // public void findSpecialCharacters(){
     //     List<Integer> input = 
