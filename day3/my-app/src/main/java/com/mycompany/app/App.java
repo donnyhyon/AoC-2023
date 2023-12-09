@@ -85,12 +85,8 @@ public class App
         for (int i = 0; i <  oneDArray.length; i++ ) {
             if (i == 0){
                 expandedArray.add(oneDArray[i] - 1);
-                expandedArray.add(oneDArray[i]);
             } else if ( i == oneDArray.length -1){
-                expandedArray.add(oneDArray[i]);
                 expandedArray.add(oneDArray[i] + 1);
-            } else {
-                expandedArray.add(oneDArray[i]);
             }
         }
             

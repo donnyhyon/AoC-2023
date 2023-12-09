@@ -70,20 +70,22 @@ public class AppTest
         List<Integer>  actual = game.expandGrid(input);
         List<Integer>  expected = new ArrayList<>();
         expected.add(4);
-        expected.add(5);
-        expected.add(6);
-        expected.add(7);
         expected.add(8);      
         assertEquals(expected, actual);
-
     }
+
+    // @Test
+    // public void findSpecialCharacters(){
+    //     List<Integer> input = 
+    //     "&/*@=-+%"
+    // }
 
     
     // parse data table into x and y co-ords
     // iterate through each line. find numbers within that line.
-
     //  for each number, get the first and last index of that number == grid
     //  expand grid out by 1 square in every direction...
+
     // create a search function to check for any unique characters within a given grid
 
 
