@@ -145,6 +145,18 @@ public class AppTest
         assertEquals(expected, actual);
     }
 
+    @Test
+    public void return_part_numbers(){
+        App game = new App();
+        game.readDataFile("data2.txt");
+        List<String> actual = game.getPartNumbers();
+        List<String> expected = new ArrayList<>();
+        expected.add("114");
+        expected.add("58");
+        assertEquals(expected, actual);
+
+    }
+
 
 
     
