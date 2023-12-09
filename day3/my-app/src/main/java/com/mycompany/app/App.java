@@ -103,6 +103,7 @@ public class App
 
     public Boolean checkForSpecialCharacters(String lineInput, List<Integer> desiredIndexRange) {
         String subSetOfStringToCheck = lineInput.substring(desiredIndexRange.get(0), desiredIndexRange.get(desiredIndexRange.size() -1));
+        System.out.println(subSetOfStringToCheck);
 
         Pattern pattern = Pattern.compile("[&/*@=\\-%+]");
         Matcher matcher = pattern.matcher(subSetOfStringToCheck);

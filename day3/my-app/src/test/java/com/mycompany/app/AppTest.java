@@ -99,13 +99,26 @@ public class AppTest
     @Test
     public void find_Special_Characters(){
         App game = new App();
-        String lineInput = "......#...";
+        String lineInput = "0123456&89";
         List<Integer> desiredIndexRange = new ArrayList<>();
         desiredIndexRange.add(8);
         desiredIndexRange.add(10);
         Boolean actual = game.checkForSpecialCharacters(lineInput, desiredIndexRange);
         Boolean expected = false;
-                assertEquals(expected, actual);
+        assertEquals(expected, actual);
+
+    }
+
+    @Test
+    public void find_Special_Characters_true(){
+        App game = new App();
+        String lineInput = "012345678&";
+        List<Integer> desiredIndexRange = new ArrayList<>();
+        desiredIndexRange.add(8);
+        desiredIndexRange.add(10);
+        Boolean actual = game.checkForSpecialCharacters(lineInput, desiredIndexRange);
+        Boolean expected = true;
+        assertEquals(expected, actual);
 
     }
 
