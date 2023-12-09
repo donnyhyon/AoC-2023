@@ -74,15 +74,26 @@ public class AppTest
         assertEquals(expected, actual);
     }
 
-        @Test
-        public void get1DIndexAndExpandInto3DIndexWhenAtAnEdge(){
-            App game = new App();
-            int[] input = new int[]{0,1,2};
-            List<Integer>  actual = game.expandGrid(input);
-            List<Integer>  expected = new ArrayList<>();
-            expected.add(0);
-            expected.add(3);      
-            assertEquals(expected, actual);
+    @Test
+    public void get1DIndexAndExpandInto3DIndexWhenAtAnEdge(){
+        App game = new App();
+        int[] input = new int[]{0,1,2};
+        List<Integer>  actual = game.expandGrid(input);
+        List<Integer>  expected = new ArrayList<>();
+        expected.add(0);
+        expected.add(3);      
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void get_1D_Index_And_Expand_Into_3D_Index_When_At_The_Other_Edge(){
+        App game = new App();
+        int[] input = new int[]{9,10};
+        List<Integer>  actual = game.expandGrid(input);
+        List<Integer>  expected = new ArrayList<>();
+        expected.add(8);
+        expected.add(10);      
+        assertEquals(expected, actual);
     }
 
     // @Test
