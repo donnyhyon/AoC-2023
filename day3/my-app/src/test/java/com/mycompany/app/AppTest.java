@@ -89,7 +89,6 @@ public class AppTest
     public void get_1D_Index_And_Expand_Into_3D_Index_When_At_The_Other_Edge(){
         App game = new App();
         int[] input = new int[]{9,10};
-        game.readDataFile("data2.txt");
         List<Integer>  actual = game.expandGrid(input);
         List<Integer>  expected = new ArrayList<>();
         expected.add(8);
@@ -97,11 +96,18 @@ public class AppTest
         assertEquals(expected, actual);
     }
 
-    // @Test
-    // public void findSpecialCharacters(){
-    //     List<Integer> input = 
-    //     "&/*@=-+%"
-    // }
+    @Test
+    public void find_Special_Characters(){
+        App game = new App();
+        String lineInput = "......#...";
+        List<Integer> desiredIndexRange = new ArrayList<>();
+        desiredIndexRange.add(8);
+        desiredIndexRange.add(10);
+        Boolean actual = game.checkForSpecialCharacters(lineInput, desiredIndexRange);
+        Boolean expecter = false;
+    }
+
+
 
     
     // parse data table into x and y co-ords
