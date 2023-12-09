@@ -3,10 +3,21 @@ package day4;
 import java.util.ArrayList;
 import java.util.List;
 
+import java.io.FileReader;
+import java.io.BufferedReader;
+import java.io.IOException;
+
+
 
 public class App 
 {   
     static String[] rawData;
+
+    public class Card
+    {
+        String[] winningNumbers;
+        String[] usersNumbers;
+    }
     
     public static void main( String[] args )
     {
@@ -32,5 +43,10 @@ public class App
             e.printStackTrace();
         }
         rawData = lines.toArray(new String[0]);
+    }
+
+    public Card splitScoreCard() {
+        
+        return Card;
     }
 }
