@@ -41,8 +41,14 @@ public class App
         }
     }
 
+    public String removeVerbose(String aString){
+        return aString.replaceFirst("^.*?:", "").trim();
+    }
+
     public Card splitScoreCard(String aScoreCard) {
         Card card = new Card();
+
+
 
 
 

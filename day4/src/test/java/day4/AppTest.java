@@ -15,6 +15,14 @@ import day4.App.Card;
 
 public class AppTest 
 {
+    @Test
+    public void remove_verbose(){
+        String input = "Card 1: 41 48 83 86 17";
+        App game = new App();
+        String actual = game.removeVerbose(input);
+        String expected = "41 48 83 86 17";
+        assertEquals(expected, actual);
+    }
 
     @Test
     public void check_splitting_array_into_two_sets()
@@ -29,6 +37,8 @@ public class AppTest
         assertEquals(new int[]{17,41,48,83,86}, winningNumbers);
         assertEquals(new int[]{6,9,17,31,48,53,83,86}, usersNumbers);
     }
+
+
 
     
 }
