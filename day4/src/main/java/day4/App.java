@@ -17,8 +17,8 @@ public class App
 
     public static class Card
     {
-        Set<Integer> winningNumbers;
-        Set<Integer> usersNumbers;
+        int[] winningNumbers;
+        int[] usersNumbers;
     }
     
     public static void main( String[] args )
