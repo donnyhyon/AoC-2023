@@ -15,7 +15,7 @@ public class App
 {   
     static String[] rawData;
 
-    public class Card
+    public static class Card
     {
         Set<Integer> winningNumbers;
         Set<Integer> usersNumbers;
@@ -48,7 +48,9 @@ public class App
     }
 
     public Card splitScoreCard(String aScoreCard) {
+        Card card = new Card();
 
-        return null;
+
+        return card;
     }
 }

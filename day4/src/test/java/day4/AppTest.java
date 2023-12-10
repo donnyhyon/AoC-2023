@@ -21,7 +21,8 @@ public class AppTest
     {
         App game = new App();
         String input = "Card 1: 41 48 83 86 17 | 83 86  6 31 17  9 48 53";
-        Card card = game.splitScoreCard(input);
+        Card card = new Card();
+        card = game.splitScoreCard(input);
         Set<Integer> winningNumbers = card.winningNumbers;
         Set<Integer> usersNumbers = card.usersNumbers;
 
