@@ -48,12 +48,22 @@ public class AppTest
         assertEquals(expected,actual);
     }
 
-        @Test
-        public void determines_0_points_for_no_matches(){
+    @Test
+    public void determines_0_points_for_no_matches(){
         App game = new App();
         int matches = 0;
         int actual = game.convertMatchesToPoints(matches);
         int expected = 0;
+        assertEquals(expected,actual);
+    }
+
+    @Test
+    public void check_if_in_both_arrays(){
+        App game = new App();
+        int[] array1 = new int[]{1, 2};
+        int[] array2 = new int[]{2,3,4};
+        int actual = game.checkWinningNumbers(array1,array2);
+        int expected = 1;
         assertEquals(expected,actual);
     }
 }
