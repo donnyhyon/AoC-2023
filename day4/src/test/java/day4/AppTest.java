@@ -21,8 +21,9 @@ public class AppTest
     public void check_splitting_array_into_two_sets()
     {
         App game = new App();
-        game.readDataFile("data2.txt");
-        int[][] actual = game.splitScoreCard(game.rawData.get(0));
+        String[] rawData = game.readDataFile("data2.txt");
+        String input  = rawData[0];
+        int[][] actual = game.splitScoreCard(input);
         int[][] expected = new int[][]{{17,41,48,83,86},{6,9,17,31,48,53,83,86}};
         assertEquals(Arrays.deepToString(expected), Arrays.deepToString(actual));
     }

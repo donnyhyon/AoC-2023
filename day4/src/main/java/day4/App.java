@@ -11,51 +11,72 @@ import java.io.IOException;
 
 public class App 
 {   
-    public ArrayList<String> rawData = new ArrayList<>();
-    static int count = 0;
     public static void main( String[] args )
     {
         System.out.println( "Hello World!" );
     }
+    
+    public String[] readDataFile(String filePath) {
+        int count = 0;
 
-    public int readDataFile(String filePath) {
         try {
             FileReader reader = new FileReader(filePath);
             BufferedReader bufferedReader = new BufferedReader(reader);
             String line;
             while ((line = bufferedReader.readLine()) != null) {
-                rawData.add(line);
                 count++;
             }
             bufferedReader.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return count;
-    }
+        String[] rawData = new String[count];
 
+        try {
+            FileReader reader = new FileReader(filePath);
+            BufferedReader bufferedReader = new BufferedReader(reader);
+            String line;
+            int eachline = 0;
+            while ((line = bufferedReader.readLine()) != null) {
+                    rawData[eachline] = line;
+                    eachline++;
+            }
+            bufferedReader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return rawData;
+    }
+    
     public String removeVerbose(String aString){
         return aString.replaceFirst("^.*?:", "").trim();
     }
 
     public int[][] splitScoreCard(String aScoreCard) {
-        String[] splitStrings = aScoreCard.split("|");
+        String[] splitStrings = removeVerbose(aScoreCard).split("\\|");
         String[] strWinningNumbers =  removeVerbose(splitStrings[0]).split(" ");
         String[] strUserNumbers =  splitStrings[1].trim().split(" ");
+        System.out.println(Arrays.toString(strWinningNumbers));
+        System.out.println(Arrays.toString(strUserNumbers));
+
+        
+        
         int[] intWinningNumbers = new int[strWinningNumbers.length];
         int[] intUserNumbers = new int[strUserNumbers.length];
         for (int i = 0; i < strWinningNumbers.length; i ++){
-            intWinningNumbers[i] = Integer.parseInt(strWinningNumbers[i]);
+            intWinningNumbers[i] = Integer.parseInt(strWinningNumbers[i].trim());
         }
         for (int i = 0; i < strUserNumbers.length; i ++){
-            intUserNumbers[i] = Integer.parseInt(strUserNumbers[i]);
+            intUserNumbers[i] = Integer.parseInt(strUserNumbers[i].trim());
         }
-        Arrays.sort(intWinningNumbers);
-        System.out.println(Arrays.toString(intWinningNumbers));
-        System.out.println(Arrays.toString(intUserNumbers));
-        Arrays.sort(intUserNumbers);
-        int[][] scoreCard = new int[][]{intWinningNumbers,intUserNumbers};
+        // System.out.println(Arrays.toString(intWinningNumbers));
+        // System.out.println(Arrays.toString(intUserNumbers));
+        // Arrays.sort(intWinningNumbers);
+        // Arrays.sort(intUserNumbers);
+        // System.out.println(Arrays.toString(intWinningNumbers));
+        // System.out.println(Arrays.toString(intUserNumbers));
+        // int[][] scoreCard = new int[][]{intWinningNumbers,intUserNumbers};
     
-        return scoreCard;
+        return null;
     }
 }
