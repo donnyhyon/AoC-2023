@@ -35,7 +35,7 @@ public class AppTest
         String[] rawData = game.readDataFile("data2.txt");
         String input  = rawData[1];
         int[][] actual = game.splitScoreCard(input);
-        int[][] expected = new int[][]{{13, 16, 20, 32, 61},{17, 19, 24, 30, 32, 61, 68, 82}};
+        int[][] expected = new int[][]{{13,16,20,32,61},{17,19,24,30,32,61,68,82}};
         assertEquals(Arrays.deepToString(expected), Arrays.deepToString(actual));
     }
 
@@ -60,10 +60,20 @@ public class AppTest
     @Test
     public void check_if_in_both_arrays(){
         App game = new App();
-        int[] array1 = new int[]{1, 2};
+        int[] array1 = new int[]{1,2};
         int[] array2 = new int[]{2,3,4};
         int actual = game.checkWinningNumbers(array1,array2);
         int expected = 1;
+        assertEquals(expected,actual);
+    }
+
+    @Test
+    public void check_if_in_both_arrays_2(){
+        App game = new App();
+        int[] array1 = new int[]{1,2,3,4};
+        int[] array2 = new int[]{2,3,4};
+        int actual = game.checkWinningNumbers(array1,array2);
+        int expected = 3;
         assertEquals(expected,actual);
     }
 }
