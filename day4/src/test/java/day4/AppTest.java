@@ -76,4 +76,12 @@ public class AppTest
         int expected = 3;
         assertEquals(expected,actual);
     }
+
+    @Test
+    public void acceptance_test(){
+        App game = new App();
+        int actual = game.startGame("data2.txt");
+        int expected = 13;
+        assertEquals(expected,actual);
+    }
 }
