@@ -38,4 +38,13 @@ public class AppTest
         int[][] expected = new int[][]{{13, 16, 20, 32, 61},{17, 19, 24, 30, 32, 61, 68, 82}};
         assertEquals(Arrays.deepToString(expected), Arrays.deepToString(actual));
     }
+
+    @Test
+    public void determines_number_of_points_based_on_matching_numbers(){
+        App game = new App();
+        int matches = 3;
+        int actual = game.convertMatchesToPoints(matches);
+        int expected = 4;
+        assertEquals(expected,actual);
+    }
 }

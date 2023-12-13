@@ -67,9 +67,20 @@ public class App
         }
         Arrays.sort(intWinningNumbers);
         Arrays.sort(intUserNumbers);
-        System.out.println(Arrays.toString(intUserNumbers));
         int[][] scoreCard = new int[][]{intWinningNumbers,intUserNumbers};
     
         return scoreCard;
     }
+
+    public int convertMatchesToPoints(int matches) {
+        int score = 1;
+        if (matches == 0){
+            return 0;
+        }
+        for (int i = 0 ; i < matches - 1; i++ ){
+            score = score * 2;
+        }
+        return score;
+    }
+
 }
