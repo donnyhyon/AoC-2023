@@ -56,26 +56,17 @@ public class App
         String[] splitStrings = removeVerbose(aScoreCard).split("\\|");
         String[] strWinningNumbers =  removeVerbose(splitStrings[0]).split("\\s+");
         String[] strUserNumbers =  splitStrings[1].trim().split("\\s+");
-        System.out.println(Arrays.toString(strWinningNumbers));
-        System.out.println(Arrays.toString(strUserNumbers));
-
-        
         
         int[] intWinningNumbers = new int[strWinningNumbers.length];
         int[] intUserNumbers = new int[strUserNumbers.length];
-            System.out.println(Arrays.toString(intWinningNumbers));
-        System.out.println(Arrays.toString(intUserNumbers));
         for (int i = 0; i < strWinningNumbers.length; i ++){
             intWinningNumbers[i] = Integer.parseInt(strWinningNumbers[i].trim());
         }
         for (int i = 0; i < strUserNumbers.length; i ++){
             intUserNumbers[i] = Integer.parseInt(strUserNumbers[i].trim());
         }
-        System.out.println(Arrays.toString(intWinningNumbers));
-        System.out.println(Arrays.toString(intUserNumbers));
         Arrays.sort(intWinningNumbers);
         Arrays.sort(intUserNumbers);
-        System.out.println(Arrays.toString(intWinningNumbers));
         System.out.println(Arrays.toString(intUserNumbers));
         int[][] scoreCard = new int[][]{intWinningNumbers,intUserNumbers};
     
