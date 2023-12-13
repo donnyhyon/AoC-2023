@@ -47,4 +47,13 @@ public class AppTest
         int expected = 4;
         assertEquals(expected,actual);
     }
+
+        @Test
+        public void determines_0_points_for_no_matches(){
+        App game = new App();
+        int matches = 0;
+        int actual = game.convertMatchesToPoints(matches);
+        int expected = 0;
+        assertEquals(expected,actual);
+    }
 }

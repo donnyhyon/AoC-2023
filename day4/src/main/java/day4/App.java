@@ -75,8 +75,9 @@ public class App
     public int convertMatchesToPoints(int matches) {
         if (matches == 0){
             return 0;
-        }
+        } 
         return (int) Math.pow(2,(matches-1));
+        
     }
 
 }
