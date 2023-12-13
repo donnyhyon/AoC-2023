@@ -93,4 +93,16 @@ public class App
         return matches;
     }
 
+    public int startGame(String filePath) {
+        int score = 0;
+        String[] allGames = readDataFile(filePath);
+        for (String game : allGames) {
+            int[][] splitGame = splitScoreCard(game);
+            int matchedNumbers = checkWinningNumbers(splitGame[0], splitGame[1]);
+            score += convertMatchesToPoints(matchedNumbers);
+        }
+        System.out.println(score);
+        return score;
+    }
+
 }
