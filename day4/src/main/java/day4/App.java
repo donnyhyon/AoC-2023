@@ -73,14 +73,10 @@ public class App
     }
 
     public int convertMatchesToPoints(int matches) {
-        int score = 1;
         if (matches == 0){
             return 0;
         }
-        for (int i = 0 ; i < matches - 1; i++ ){
-            score = score * 2;
-        }
-        return score;
+        return (int) Math.pow(2,(matches-1));
     }
 
 }
